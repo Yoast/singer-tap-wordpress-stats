@@ -2,9 +2,7 @@
 # -*- coding: utf-8 -*-
 from singer import metadata
 from singer.catalog import Catalog, CatalogEntry
-
 from tap_twinfield.schema import load_schemas
-from tap_twinfield.streams import STREAMS
 
 
 def discover() -> Catalog:  # noqa: WPS210
@@ -19,7 +17,7 @@ def discover() -> Catalog:  # noqa: WPS210
     # Parse every schema
     for stream_id, schema in raw_schemas.items():
 
-        stream_meta: dict = STREAMS[stream_id]
+        stream_meta: dict = {}
         # Create metadata
         mdata: list = metadata.get_standard_metadata(
             schema=schema.to_dict(),
