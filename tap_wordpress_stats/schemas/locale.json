@@ -1,0 +1,20 @@
+{
+	"selected": true,
+	"type": [
+		"null",
+		"object"
+	],
+	"additionalProperties": false,
+	"properties": {
+		"locale": {
+			"type":	"string"
+		},
+		"percentage": {
+			"type": "number"
+		},
+		"timestamp": {
+			"type":	"string",
+			"format": "date-time"
+		}
+	}
+}
