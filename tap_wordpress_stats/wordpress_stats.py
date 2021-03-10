@@ -92,7 +92,7 @@ class WordPressStats(object):
             {
                 'timestamp': now,
                 'locale': locale,
-                'percentage': Decimal(str(percentage)) / 100,
+                'percentage': round(Decimal(str(percentage)) / 100, 4),
             } for locale, percentage in wp_data.items()
         ]
 

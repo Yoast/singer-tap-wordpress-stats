@@ -6,12 +6,15 @@ spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md).
 
 This tap:
 
-- Pulls raw data from [FIXME](http://example.com)
+- Pulls raw data from [WordPress.org Stats](hhttps://wordpress.org/about/stats/)
 - Extracts the following resources:
-  - [FIXME](http://example.com)
+  - WordPress versions
+  - PHP versions
+  - MySQL versions
+  - Locales
 - Outputs the schema for each resource
-- Incrementally pulls data based on the input state
+- Fully loads the statsistics on every run
 
 ---
 
-Copyright &copy; 2018 Stitch
+Copyright &copy; 2021 Stitch

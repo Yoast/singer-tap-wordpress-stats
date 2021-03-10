@@ -19,7 +19,7 @@ LOGGER: logging.RootLogger = get_logger()
 def main() -> None:
     """Run tap."""
     # Parse command line arguments
-    args: Namespace = utils.parse_args()
+    args: Namespace = utils.parse_args([])
 
     LOGGER.info(f'>>> Running tap-wordpress-stats v{VERSION}')
 
