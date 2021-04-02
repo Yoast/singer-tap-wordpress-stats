@@ -13,6 +13,7 @@ PATH_WORDPRESS: str = '/stats/wordpress/1.0/'
 PATH_PHP: str = '/stats/php/1.0/'
 PATH_MYSQL: str = '/stats/mysql/1.0/'
 PATH_LOCALE: str = '/stats/locale/1.0/'
+PATH_AMOUNT: str = '/stats/wordpress/1.0/?data_type=grand_total'
 
 HEADERS: MappingProxyType = MappingProxyType({
     'User-Agent': (
@@ -94,6 +95,26 @@ class WordPressStats(object):
                 'locale': locale,
                 'percentage': round(Decimal(str(percentage)) / 100, 4),
             } for locale, percentage in wp_data.items()
+        ]
+
+    @classmethod
+    def total_amount(cls) ->[dict]:
+        """Total Wordpress Sites.
+
+        Returns:
+            List[dict] -- Amount of sites
+        """
+        amount: int = cls.load(f'{API_SCHEME}{API_BASE_URL}{PATH_AMOUNT}')
+
+        now: str = datetime.now(tz=timezone.utc).replace(
+            microsecond=0,
+        ).isoformat()
+
+        return [
+            {
+                'timestamp': now,
+                'amount': amount,
+            }
         ]
 
     @classmethod
